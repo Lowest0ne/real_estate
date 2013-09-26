@@ -8,7 +8,7 @@
   <%= form.label :city %>
   <%= form.text_field :city %>
   <%= form.label :state %>
-  <%= select_tag "building[state]", options_for_select(Building.valid_states), include_blank: true  %>
+  <%= select_tag "building[state]", options_for_select(State.valid_states), include_blank: true  %>
   <%= form.label :postal_code %>
   <%= form.text_field :postal_code %>
   <%= form.label :description %>
