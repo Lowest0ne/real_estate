@@ -1,0 +1,16 @@
+
+<% @owner.errors.full_messages.each do | message | %>
+  <%= content_tag :p, message %>
+<% end %>
+
+<%= form_for @owner do |form| %>
+  <%= form.label :first_name %>
+  <%= form.text_field :first_name %>
+  <%= form.label :last_name %>
+  <%= form.text_field :last_name %>
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+  <%= form.label :company %>
+  <%= form.text_field :company %>
+  <%= form.submit %>
+<% end %>
