@@ -6,7 +6,7 @@ feature 'associate records building',%Q{
   So that I can refer back to pertinent information
 }do
 
-#Acceptance Criteria:
+# Acceptance Criteria:
 #
 # * I must specify a street address, city, state, and postal code
 # * Only US states can be specified
@@ -15,11 +15,17 @@ feature 'associate records building',%Q{
 # * If I do not specify all of the required information in the required formats, the building is not recorded and I am presented with errors
 # * Upon successfully creating a building, I am redirected so that I can record another building.
 
+#  Also
+#
+# * When recording a building, I want to optionally associate the building with its rightful owner.
+# * If I delete an owner, the owner and its primary key should no longer be associated with any properties.
+
 
   scenario 'with valid information' do
 
     prev_count = Building.count
     building = FactoryGirl.build( :building )
+    owner = FactoryGirl.create( :owner )
 
     visit new_building_path
     fill_in 'Street address', with: building.street_address
@@ -27,10 +33,12 @@ feature 'associate records building',%Q{
     select building.state, from: 'State'
     fill_in 'Postal code', with: building.postal_code
     fill_in 'Description', with: building.description
+    select owner.full_name, from: 'owner'
 
     click_on 'Create Building'
 
     expect( Building.count ).to eql( prev_count + 1)
+    expect( Building.last.owner.full_name ).to eql( owner.full_name )
 
     page.should have_content("Building has been created")
 

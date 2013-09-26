@@ -10,4 +10,5 @@ class Building < ActiveRecord::Base
   validates_numericality_of :postal_code
   validates_length_of :postal_code, is: 5
 
+  belongs_to :owner, inverse_of: :building
 end

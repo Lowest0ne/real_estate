@@ -13,6 +13,8 @@
   <%= form.text_field :postal_code %>
   <%= form.label :description %>
   <%= form.text_area :description %>
+  <%= form.label :owner_id %>
+  <%= select_tag "owner", options_for_select(Owner.without_buildings), include_blank: true %>
   <%= form.submit %>
 <% end %>
 

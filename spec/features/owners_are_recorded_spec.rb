@@ -49,13 +49,3 @@ feature 'owners can be recorded',%Q{
 
 end
 
-feature 'owners can be matched to buildings',%Q{
-  As a real estate associate
-  I want to match an owner of a building
-  So that I can refer back to pertinent information
-}
-#  Acceptance Criteria:
-#
-# * When recording a building, I want to optionally associate the building with its rightful owner.
-# * If I delete an owner, the owner and its primary key should no longer be associated with any properties.
-
