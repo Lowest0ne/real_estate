@@ -1,0 +1,18 @@
+<% @building.errors.full_messages.each do | message | %>
+  <%= content_tag :p, message %>
+<% end %>
+
+<%= form_for @building do |form| %>
+  <%= form.label :street_address %>
+  <%= form.text_field :street_address %>
+  <%= form.label :city %>
+  <%= form.text_field :city %>
+  <%= form.label :state %>
+  <%= select_tag "building[state]", options_for_select(State.valid_states), include_blank: true  %>
+  <%= form.label :postal_code %>
+  <%= form.text_field :postal_code %>
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+  <%= form.submit %>
+<% end %>
+
