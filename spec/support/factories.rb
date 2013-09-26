@@ -7,4 +7,12 @@ FactoryGirl.define do
     postal_code '02111'
     description 'a hotspot for tech growth in Boston'
   end
+
+  factory :owner do
+    first_name 'Carl'
+    last_name 'Schwope'
+    email 'schwope.carl@gmail.com'
+    company 'Launch Academy'
+  end
+
 end
