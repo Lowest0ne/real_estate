@@ -13,6 +13,12 @@ class OwnersController < ApplicationController
     end
   end
 
+  def show
+    @owner = Owner.find( params[:id] )
+    @building = @owner.building
+    @tennant = @building.tennants.build if @building
+  end
+
   def owner_params
     params.require(:owner).permit(:first_name, :last_name, :email, :company)
   end

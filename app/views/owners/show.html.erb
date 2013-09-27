@@ -1,0 +1,30 @@
+
+<%= content_tag :h1, 'Hello' %>
+<%= content_tag :p, @owner.full_name %>
+
+<% if @building %>
+  <%= content_tag :h2, @owner.building.street_address %>
+  <ul>
+    <% @building.tennants.each do |tennant| %>
+    <%= ( content_tag :li, "#{tennant.full_name}: #{tennant.email}" ) if tennant.valid? %>
+    <% end %>
+  </ul>
+
+  <%= form_for @building.tennants.last do |form| %>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+    <%= form.label :building_id %>
+    <%= select_tag "address", options_for_select([@building.street_address]) %>
+    <%= form.submit class: 'my_clicker' %>
+  <% end %>
+
+
+<% else %>
+  <%= content_tag :h2, 'You should probably go make a builing for yourself' %>
+<% end %>
+
+

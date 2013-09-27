@@ -15,4 +15,10 @@ FactoryGirl.define do
     company 'Launch Academy'
   end
 
+  factory :tennant do
+    first_name 'Carl'
+    last_name 'Schwope'
+    email 'howdidthis@happen.com'
+  end
+
 end

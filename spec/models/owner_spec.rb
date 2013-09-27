@@ -20,4 +20,6 @@ describe Owner do
 
     building.owner_id.should == nil
   end
+
+  it { should have_many(:tennants).through(:building) }
 end

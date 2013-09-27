@@ -5,6 +5,7 @@ class Owner < ActiveRecord::Base
   validates_presence_of :email
 
   has_one :building, dependent: :nullify, inverse_of: :owner
+  has_many :tennants, through: :building, inverse_of: :owner
 
   def full_name
     "#{first_name} #{last_name}"

@@ -11,5 +11,6 @@ describe Building do
   it { should_not have_valid( :postal_code ).when( 'notnumber', '1234', '123456')}
 
   it { should belong_to( :owner ) }
+  it { should have_many( :tennants ) }
 
 end
