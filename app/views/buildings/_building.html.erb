@@ -1,0 +1,7 @@
+<tr>
+  <%= content_tag :td, building.street_address %>
+  <%= content_tag :td, building.city %>
+  <%= content_tag :td, building.state %>
+  <%= content_tag :td, building.description %>
+  <%= content_tag :td, building.owner.try(:full_name) %>
+</tr>
